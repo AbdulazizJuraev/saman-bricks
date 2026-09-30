@@ -70,34 +70,44 @@ document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>{
   f.reset();
 }));
 
-// Uy g'ishtdan pastdan yuqoriga qurilib chiqadi
+// Ko'p qavatli binolar g'ishtdan pastdan yuqoriga qurilib chiqadi
 (function(){
   const box=document.getElementById("house"); if(!box) return;
   const svg=box.querySelector("svg"), NS="http://www.w3.org/2000/svg";
-  const el=(t,a,p)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);(p||svg).appendChild(n);return n;};
-  const reds=["#b5462b","#c0553a","#a93f26","#cc5a3c","#9c3822"];
-  const door={x1:172,x2:228,y1:250}, wins=[[96,140],[260,304]], wy=[232,270];
-  const R=9,H=16,P=18,X0=71,Y0=340;
-  const inDoor=(x,y,w)=>{const cx=x+w/2,cy=y+H/2;return (cx>door.x1&&cx<door.x2&&cy>door.y1)||wins.some(([a,b])=>cx>a&&cx<b&&cy>wy[0]&&cy<wy[1]);};
-  el("rect",{x:40,y:340,width:320,height:8,rx:3,fill:"#5a4a40"});
-  const bricks=[];
-  for(let r=0;r<R;r++){
-    const y=Y0-(r+1)*P, odd=r%2, list=[];
-    if(odd){list.push([X0,19.5]);for(let i=0;i<5;i++)list.push([X0+21.5+i*43,41]);list.push([X0+21.5+5*43,19.5]);}
-    else for(let i=0;i<6;i++)list.push([X0+i*43,41]);
-    list.forEach(([x,w],i)=>{ if(inDoor(x,y,w))return;
-      const b=el("rect",{x,y,width:w,height:H,rx:2,fill:reds[(r*3+i*2)%reds.length],class:"b"});
-      b.style.animationDelay=(r*0.5+i*0.06)+"s"; bricks.push(b);});
-  }
-  const t0=R*0.5+0.6;
+  svg.setAttribute("viewBox","0 0 520 380");
+  const el=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);svg.appendChild(n);return n;};
+  const H=16,P=18,GY=350,RD=0.28;
+  const palettes=[["#b5462b","#c0553a","#a93f26","#cc5a3c"],["#c8683a","#d4773f","#b95a30","#dd8248"],["#8f3420","#9c3822","#7f2d1b","#a8452b"],["#b5462b","#a93f26","#c0553a","#9c3822"]];
+  const towers=[{x:8,w:112,f:5,s:0.5},{x:134,w:132,f:8,s:0},{x:280,w:112,f:6,s:0.9},{x:406,w:106,f:4,s:0.3}];
+  el("rect",{x:0,y:GY,width:520,height:10,rx:3,fill:"#5a4a40"});
+  let end=0;
   const part=(n,d)=>{n.setAttribute("class","part");n.style.animationDelay=d+"s";return n;};
-  part(el("rect",{x:268,y:78,width:24,height:70,fill:"#8f3420"}),t0);
-  part(el("polygon",{points:"48,184 200,66 352,184 352,196 48,196",fill:"#4a3a32"}),t0);
-  part(el("polygon",{points:"58,180 200,72 342,180",fill:"#b5462b"}),t0+.15);
-  part(el("rect",{x:door.x1,y:door.y1,width:56,height:90,rx:3,fill:"#d9a441"}),t0+.6);
-  part(el("circle",{cx:218,cy:296,r:3,fill:"#5a3a12"}),t0+.7);
-  wins.forEach(([a,b],i)=>{part(el("rect",{x:a,y:wy[0],width:b-a,height:wy[1]-wy[0],rx:3,fill:"#8fc6e8",stroke:"#f6f1ea","stroke-width":4}),t0+.8+i*.15);});
+  towers.forEach((t,ti)=>{
+    const rows=t.f*2, cols=Math.max(3,Math.round(t.w/26)), pitch=t.w/cols, pal=palettes[ti];
+    const nw=Math.max(2,Math.floor((t.w-14)/34)), gap=(t.w-nw*20)/(nw+1);
+    const wins=[];
+    for(let fl=0;fl<t.f;fl++){const top=GY-(fl+1)*2*P;for(let k=0;k<nw;k++){
+      if(fl===0&&k===Math.floor(nw/2))continue;
+      wins.push({x:t.x+gap+k*(20+gap),y:top+9,w:20,h:24,fl,lit:((fl*7+k*5+ti*3)%4===0)});}}
+    const door={x:t.x+t.w/2-11,y:GY-34,w:22,h:34};
+    const hit=(cx,cy)=>wins.some(o=>cx>o.x&&cx<o.x+o.w&&cy>o.y&&cy<o.y+o.h)||(cx>door.x&&cx<door.x+door.w&&cy>door.y);
+    for(let r=0;r<rows;r++){
+      const y=GY-(r+1)*P,odd=r%2,list=[];
+      if(odd){list.push([t.x,pitch/2-2]);for(let c=0;c<cols-1;c++)list.push([t.x+pitch/2+c*pitch,pitch-2]);list.push([t.x+pitch/2+(cols-1)*pitch,pitch/2-2]);}
+      else for(let c=0;c<cols;c++)list.push([t.x+c*pitch,pitch-2]);
+      list.forEach(([x,w],c)=>{ if(hit(x+w/2,y+H/2))return;
+        const b=el("rect",{x,y,width:w,height:H,rx:2,fill:pal[(r*3+c*2)%pal.length],class:"b"});
+        b.style.animationDelay=(t.s+r*RD+c*0.04)+"s";});
+    }
+    wins.forEach(o=>part(el("rect",{x:o.x,y:o.y,width:o.w,height:o.h,rx:2,fill:o.lit?"#f4c95d":"#8fc6e8",stroke:"#f6f1ea","stroke-width":2.5}),t.s+(o.fl*2+2)*RD+0.2));
+    part(el("rect",{x:door.x,y:door.y,width:door.w,height:door.h,rx:2,fill:"#d9a441"}),t.s+2*RD+0.2);
+    const roofT=t.s+rows*RD+0.35, ry=GY-rows*P;
+    part(el("rect",{x:t.x-4,y:ry-8,width:t.w+8,height:8,rx:2,fill:"#4a3a32"}),roofT);
+    if(ti===1){part(el("rect",{x:t.x+t.w/2-2,y:ry-52,width:4,height:44,fill:"#4a3a32"}),roofT+.2);part(el("circle",{cx:t.x+t.w/2,cy:ry-54,r:4,fill:"#e0523a"}),roofT+.4);}
+    else part(el("rect",{x:t.x+14,y:ry-22,width:28,height:14,rx:2,fill:"#8f3420"}),roofT+.15);
+    end=Math.max(end,roofT+.8);
+  });
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)box.classList.add("soft");
   const run=()=>{box.classList.remove("go");void box.offsetWidth;box.classList.add("go");};
-  run(); setInterval(run,(t0+2.6+5)*1000);
+  run(); setInterval(run,(end+5)*1000);
 })();
