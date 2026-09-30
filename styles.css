@@ -214,3 +214,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   .quick-card,.quick-card form{grid-template-columns:1fr}
   .quick-card .btn{width:100%}
 }
+
+/* harakat kamaytirilgan qurilmalarda: siljimasdan, faqat paydo bo'lish */
+.house.soft.go .b,.house.soft.go .part{animation-name:fadein;animation-duration:.5s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}

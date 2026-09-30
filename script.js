@@ -97,7 +97,7 @@ document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>{
   part(el("rect",{x:door.x1,y:door.y1,width:56,height:90,rx:3,fill:"#d9a441"}),t0+.6);
   part(el("circle",{cx:218,cy:296,r:3,fill:"#5a3a12"}),t0+.7);
   wins.forEach(([a,b],i)=>{part(el("rect",{x:a,y:wy[0],width:b-a,height:wy[1]-wy[0],rx:3,fill:"#8fc6e8",stroke:"#f6f1ea","stroke-width":4}),t0+.8+i*.15);});
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches){box.classList.add("static");return;}
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)box.classList.add("soft");
   const run=()=>{box.classList.remove("go");void box.offsetWidth;box.classList.add("go");};
   run(); setInterval(run,(t0+2.6+5)*1000);
 })();
