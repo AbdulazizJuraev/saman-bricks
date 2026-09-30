@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saman Bricks — Sifatli g'isht ishlab chiqarish zavodi</title>
+<meta name="description" content="Saman Bricks: qizil, bo'sh, fasad va pechka g'ishti. Zavoddan to'g'ridan-to'g'ri narxlar, tez yetkazib berish va sifat kafolati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="img/Logo Saman Bricks.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo"><img src="img/Logo Saman Bricks.png" alt="Saman Bricks"><span>Saman Bricks<small>G'isht zavodi</small></span></a>
+    <nav><ul>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#products">Mahsulotlar</a></li>
+      <li><a href="#why">Afzalliklar</a></li>
+      <li><a href="#calc">Kalkulyator</a></li>
+      <li><a href="#delivery">Yetkazib berish</a></li>
+      <li><a href="#faq">Savollar</a></li>
+      <li><a href="#contact">Aloqa</a></li>
+    </ul></nav>
+    <button class="burger" aria-label="Menyu">☰</button>
+  </div>
+</header>
+
+<div class="scrim"></div>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow" style="color:var(--brick-l)">Zavoddan to'g'ridan-to'g'ri</span>
+      <h1>Mustahkam uy — <span>sifatli g'ishtdan</span> boshlanadi</h1>
+      <p>Qizil, bo'sh, fasad va o'tga chidamli g'ishtni ishlab chiqaramiz. Yuqori marka, sovuqqa chidamlilik va kafolatlangan yetkazib berish.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Katalogni ko'rish</a>
+        <a href="#contact" class="btn btn-ghost">Narx so'rash</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Tezkor hisob-kitob</h3>
+      <p>Raqamingizni qoldiring — 15 daqiqada qo'ng'iroq qilamiz.</p>
+      <form>
+        <input type="text" placeholder="Ismingiz" required>
+        <input type="tel" placeholder="+998 __ ___ __ __" required>
+        <select><option>Qizil g'isht</option><option>Bo'sh g'isht</option><option>Fasad g'isht</option><option>Pechka g'ishti</option></select>
+        <button class="btn btn-primary">Qo'ng'iroq buyurtma qilish</button>
+        <p class="ok">Rahmat! Tez orada bog'lanamiz.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="stats"><div class="container">
+  <div class="stat"><b>15+</b><span>yillik tajriba</span></div>
+  <div class="stat"><b>50 mln</b><span>g'isht yiliga</span></div>
+  <div class="stat"><b>M100–M175</b><span>markalar</span></div>
+  <div class="stat"><b>1200+</b><span>bajarilgan obyekt</span></div>
+</div></div>
+
+<section class="videosec" id="video">
+  <div class="container">
+    <div class="head" style="text-align:center"><span class="eyebrow">Video</span><h2>Saman Bricks bilan tanishing</h2>
+      <p class="lead" style="margin-inline:auto">Zavodimiz va mahsulotlarimiz haqida qisqa video.</p></div>
+    <div class="player"><video controls preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=0.5"></video></div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="head"><span class="eyebrow">Katalog</span><h2>Bizning mahsulotlar</h2>
+      <p class="lead">Barcha g'ishtlar sinovdan o'tgan va standartlarga mos. Ulgurji buyurtmalarga chegirma.</p></div>
+    <div class="filters">
+      <button class="chip active" data-f="all">Barchasi</button>
+      <button class="chip" data-f="qizil">Qizil g'isht</button>
+      <button class="chip" data-f="bosh">Bo'sh g'isht</button>
+      <button class="chip" data-f="fasad">Fasad g'isht</button>
+      <button class="chip" data-f="pech">Pechka g'ishti</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="head"><span class="eyebrow">Nega biz</span><h2>Sizga bizni tanlash uchun sabablar</h2></div>
+    <div class="features">
+      <div class="feature"><div class="ico">🏭</div><h3>O'z ishlab chiqarishimiz</h3><p>Vositachilarsiz — zavod narxi, barqaror sifat va doimiy zaxira.</p></div>
+      <div class="feature"><div class="ico">✅</div><h3>Sifat nazorati</h3><p>Har bir partiya mustahkamlik va suv shimuvchanligi bo'yicha tekshiriladi.</p></div>
+      <div class="feature"><div class="ico">❄️</div><h3>Sovuqqa chidamli</h3><p>F50 gacha sovuqqa chidamlilik — O'zbekiston iqlimiga mos.</p></div>
+      <div class="feature"><div class="ico">🚚</div><h3>Tez yetkazib berish</h3><p>O'z avtoparkimiz bilan obyektingizgacha, kran-manipulyator bilan.</p></div>
+      <div class="feature"><div class="ico">💰</div><h3>Ulgurji chegirmalar</h3><p>Katta hajmdagi buyurtmalar uchun maxsus narxlar va to'lov shartlari.</p></div>
+      <div class="feature"><div class="ico">📄</div><h3>Hujjatlar to'liq</h3><p>Sertifikat, shartnoma, hisob-faktura — barcha rasmiy hujjatlar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="head"><span class="eyebrow">Galereya</span><h2>Zavod va mahsulotlardan lavhalar</h2>
+      <p class="lead">Kadrni bosing — video shu joydan boshlanadi.</p></div>
+    <div class="shots">
+      <div class="shot big" data-t="4"><video muted preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=4"></video><span>▶</span></div>
+      <div class="shot" data-t="14"><video muted preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=14"></video><span>▶</span></div>
+      <div class="shot" data-t="26"><video muted preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=26"></video><span>▶</span></div>
+      <div class="shot" data-t="38"><video muted preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=38"></video><span>▶</span></div>
+      <div class="shot" data-t="50"><video muted preload="metadata" playsinline src="vidio/Saman_Bricks_reklama_1.mp4#t=50"></video><span>▶</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="vmodal" id="vmodal"><button class="x" aria-label="Yopish">✕</button><video controls playsinline></video></div>
+
+<section class="calc" id="calc">
+  <div class="container calc-wrap">
+    <div><span class="eyebrow" style="color:var(--brick-l)">Kalkulyator</span>
+      <h2>Necha dona g'isht kerak?</h2>
+      <p class="lead">Devor maydonini kiriting — kerakli g'isht va paddonlar sonini hisoblab beramiz (choklar va 5% zaxira bilan).</p></div>
+    <div class="calc-box">
+      <div class="field"><label>Devor maydoni (m²)</label><input type="number" id="area" value="100" min="1"></div>
+      <div class="field"><label>Devor qalinligi</label>
+        <select id="thick"><option value="half">0.5 g'isht (120 mm)</option><option value="one" selected>1 g'isht (250 mm)</option><option value="one5">1.5 g'isht (380 mm)</option></select></div>
+      <div class="result"><span>Kerak bo'ladi:</span><b id="cnt">0</b><small id="pal"></small></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="head"><span class="eyebrow">Ishlab chiqarish</span><h2>Loydan tayyor g'ishtgacha</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Xomashyo</h3><p>Sifatli sopol loy tanlanadi va tayyorlanadi.</p></div>
+      <div class="step"><h3>Shakllash</h3><p>Vakuumli press bilan aniq o'lchamda shakllanadi.</p></div>
+      <div class="step"><h3>Quritish</h3><p>Nazoratli quritish kameralarida namlik chiqariladi.</p></div>
+      <div class="step"><h3>Pishirish</h3><p>Tunnel pechida 950–1000°C da pishiriladi.</p></div>
+      <div class="step"><h3>Nazorat</h3><p>Saralash, sinov va paddonlarga qadoqlash.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="delivery" id="delivery">
+  <div class="container two">
+    <div><span class="eyebrow">Logistika</span><h2>Yetkazib berish va to'lov</h2>
+      <ul class="list">
+        <li>Toshkent va viloyatlarga yetkazib berish</li>
+        <li>Kran-manipulyatorli avtomobillar bilan tushirish</li>
+        <li>Naqd, plastik va bank o'tkazmasi orqali to'lov</li>
+        <li>Ulgurji buyurtmalarga chegirma</li>
+        <li>Zavoddan o'zi olib ketish imkoniyati</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="margin-top:20px">Yetkazib berish narxini bilish</a></div>
+    <div class="map-box"><div>🗺️<br><b>Xarita joylashuvi</b><br>(Google/Yandex xaritasi shu yerga qo'yiladi)</div></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="head" style="text-align:center"><span class="eyebrow">FAQ</span><h2>Ko'p beriladigan savollar</h2></div>
+    <div class="faq">
+      <details><summary>Minimal buyurtma hajmi qancha?</summary><p>Minimal buyurtma — 1 paddon. Kichik hajmlar bo'yicha operatorga murojaat qiling.</p></details>
+      <details><summary>Yetkazib berish qancha vaqt oladi?</summary><p>Ombordagi mahsulot 1–2 kun ichida yetkaziladi. Katta buyurtmalar kelishuv asosida.</p></details>
+      <details><summary>G'ishtning markasi nimani bildiradi?</summary><p>Marka (M100, M150...) siqilishga mustahkamlikni ko'rsatadi. Ko'p qavatli uylar uchun M150 va yuqori tavsiya etiladi.</p></details>
+      <details><summary>Sertifikat va hujjatlar beriladimi?</summary><p>Ha, har bir partiya uchun sifat sertifikati va barcha rasmiy hujjatlar taqdim etiladi.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div><span class="eyebrow" style="color:var(--brick-l)">Aloqa</span><h2>Buyurtma bering yoki narx so'rang</h2>
+      <p class="lead" style="color:#b9b0a6">Formani to'ldiring yoki bevosita qo'ng'iroq qiling.</p>
+      <ul class="cinfo">
+        <li><span>📞</span><div><b>+998 90 000 00 00</b>Dush–Shan, 08:00–18:00</div></li>
+        <li><span>✈️</span><div><b>@samanbricks</b>Telegram</div></li>
+        <li><span>✉️</span><div><b>info@samanbricks.uz</b>Email</div></li>
+        <li><span>📍</span><div><b>Toshkent viloyati, Zangiota tumani</b>Zavod manzili</div></li>
+      </ul></div>
+    <form class="form">
+      <div class="field"><label>Ismingiz</label><input type="text" required></div>
+      <div class="field"><label>Telefon</label><input type="tel" placeholder="+998" required></div>
+      <div class="field"><label>Mahsulot</label><input type="text" id="cProduct" placeholder="Masalan: Qizil g'isht M150"></div>
+      <div class="field"><label>Xabar (miqdor, manzil)</label><textarea></textarea></div>
+      <button class="btn btn-primary">Yuborish</button>
+      <p class="ok">Rahmat! So'rovingiz qabul qilindi.</p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="container"><span>© 2026 Saman Bricks. Barcha huquqlar himoyalangan.</span><span>G'isht ishlab chiqarish zavodi</span></div></footer>
+
+<div class="float"><a class="tg" href="https://t.me/samanbricks" aria-label="Telegram">✈</a><a class="ph" href="tel:+998900000000" aria-label="Qo'ng'iroq">☎</a></div>
+
+<script src="script.js"></script>
+</body>
+</html>
