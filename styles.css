@@ -188,3 +188,29 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   .burger{position:relative;z-index:90}
   .topbar .container span:last-child{display:none}
 }
+
+/* uy qurilishi animatsiyasi */
+.house{width:100%;max-width:440px;justify-self:center}
+.house svg{width:100%;height:auto;display:block;overflow:visible}
+.house .b,.house .part{opacity:0}
+.house.go .b{animation:drop .5s cubic-bezier(.2,.9,.3,1.2) forwards}
+.house.go .part{animation:pop .6s ease-out forwards}
+.house.static .b,.house.static .part{opacity:1;animation:none}
+@keyframes drop{from{opacity:0;transform:translateY(-70px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+
+/* tezkor hisob-kitob: bosh ekrandan pastda */
+.hero{padding-bottom:150px}
+.quick{background:var(--ink);padding:0 0 56px;position:relative;z-index:2}
+.quick-card{margin-top:-80px;background:#2f2926;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px rgba(0,0,0,.45);display:grid;grid-template-columns:1fr 2fr;gap:14px 32px;align-items:center}
+.quick-card p{color:#d8cfc4;margin:0;font-size:15px}
+.quick-card form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:center}
+.quick-card input,.quick-card select{margin:0}
+.quick-card .btn{width:auto;white-space:nowrap}
+.quick-card .ok{grid-column:1/-1}
+@media(max-width:900px){
+  .hero{padding:70px 0 120px}
+  .house{max-width:340px}
+  .quick-card,.quick-card form{grid-template-columns:1fr}
+  .quick-card .btn{width:100%}
+}
